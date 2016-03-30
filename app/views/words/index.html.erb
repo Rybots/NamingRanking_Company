@@ -1,0 +1,19 @@
+<table class="table table-striped table-hover">
+  <thead>
+    <tr>
+      <th>順位</th>
+      <th>名前</th>
+      <th>ネーミングスコア</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @words.each do |word| %>
+    <tr>
+      <td><%= word.ranking %></td>
+      <td><%= word.name %></td>
+      <td><%= word.score %></td>
+    </tr>
+  <% end %>
+ </tbody>
+</table>
+<%= paginate @words, :window => 2 %>
