@@ -1,5 +1,8 @@
 class WordsController < ApplicationController
   def index
-    @words = Word.page(params[:page])
+    @q = Word.ransack(params[:q])
+    @words = @q.result
+    @path = word_path
+    @t = "name_cont"
   end
 end

@@ -1,6 +1,5 @@
 source 'https://rubygems.org'
-gem 'kaminari-bootstrap', '~> 3.0.1'
-gem 'kaminari'
+gem 'ransack'
 gem 'twitter-bootswatch-rails', '~> 3.1.1'
 gem 'twitter-bootswatch-rails-helpers'
 gem 'execjs'

@@ -1,38 +1,55 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>NamingAnalysis</title>
+  <title>上場企業＆ネーミングランキング</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
 </head>
 <body>
-<nav class="navbar navbar-default navbar-fixed-top">
+
+<nav class="navbar navbar-inverse navbar-fixed-top">
   <div class="container-fluid">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-    <span class="sr-only">Toggle navigation</span>
-    <span class="icon-bar"></span>
-    <span class="icon-bar"></span>
-    <span class="icon-bar"></span>
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-2">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
       </button>
-      <%= link_to 'ネーミングランキング', score_path, class: 'navbar-brand' %>
-</div>
-<div class="navbar-collapse collapse" id="bs-example-navbar-collapse-1" aria-expanded="false" style="height: 1px;">
-  <ul class="nav navbar-nav">
-    <li><%= link_to '上場企業ランキング', root_path, class: 'navbar-brand' %></li>
-</ul>
-  <form class="navbar-form navbar-right" role="search">  
-    <div class="form-group">
-      <input type="text" class="form-control" placeholder="Search">
+      <%= link_to "上場企業&ネーミングランキング", score_path,class: "navbar-brand" ,style: "letter-spacing: 0pt; font-size: 11pt;"  %>
     </div>
-    <button type="submit" class="btn btn-default">検索</button>
-  </form>
- </div>
-</div>
+
+<small>  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
+    <ul class="nav navbar-nav">
+      <li class="active"><%= link_to "ネーミングランキング", score_path %><span class="sr-only">(current)</span></a></li>
+      <li class="active"><%= link_to "上場企業ランキング", word_path %><span class="sr-only">(current)</span></a></li>
+    </ul>
+
+    <form class="navbar-form navbar-right" role="search">
+      <div class="form-group">
+          <%= search_form_for @q,url: @path do |f| %>
+              <div class="form-group">
+                <%= f.search_field :"#{@t}", class: 'form-control', placeholder: '企業名'%>
+              </div>
+              <%= f.submit  "検索",class: 'btn btn-default' %>
+          <% end %>
+     </div>
+    </form>
+  </div>
+</small> </div>
 </nav>
-  <div class="container" style="padding-top:60px;">
+
+  <div class="container" style="padding-top:70px;">
     <%= yield %>
   </div>
+
+  <footer class="footer" style="margin-top: 0px; margin-bottom: 10px; padding-top: 6px; border-top: 1px solid #eaeaea; color: #777; text-align:center; font-family:HGP創英角ポップ体;">
+  <small>
+  The 上場企業&ネーミングランキング
+  by R
+  </small>
+  </footer>
 </body>
 </html>
